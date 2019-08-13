@@ -1,6 +1,6 @@
 module Dinovative::V1::Matchs
   class MatchApi < Grape::API
-    resources :match do 
+    resources :matches do 
 
       #====================================================================
       desc "Get info match"

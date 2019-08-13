@@ -1,6 +1,6 @@
 module Dinovative::V1::Users
   class UserApi < Grape::API
-    resources :user do 
+    resources :users do 
 
       #====================================================================
       desc "Get info user"
@@ -38,7 +38,7 @@ module Dinovative::V1::Users
       params do
         requires :full_name, type: String
       end
-      get '/user/:full_name' do
+      get '/score/:full_name' do
         user = User.find_by(full_name: params[:full_name])
         present_object user, with: Dinovative::Entities::ScoreUserEntity
       end

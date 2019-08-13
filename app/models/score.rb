@@ -29,7 +29,7 @@ class Score < ApplicationRecord
               status2 = 1
             end
             Score.find_or_create_by( match_id: match.id, player_id: match.player1.id ).update! status: status1
-            Score.find_or_create_by( match_id: match.id, player_id: match.player1.id ).update! status: status2
+            Score.find_or_create_by( match_id: match.id, player_id: match.player2.id ).update! status: status2
           end
         end
     end

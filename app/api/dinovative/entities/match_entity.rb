@@ -8,7 +8,7 @@ module Dinovative::Entities
       if obj.status_match.nil?
         {status: :equal}
       else
-        UserEntity.represent(obj.status_match)
+        expose :winner, with: UserEntity.represent(obj.status_match)
       end
     end
   end
