@@ -9,7 +9,7 @@ module Dinovative::V1::Users
         optional :full_name, type: String
       end
       get '/' do
-        user = User.where(["email = '%s' and full_name = '%s'", params[:email], params[:full_name]]).last
+        user = User.where(["email = '%s' or full_name = '%s'", params[:email], params[:full_name]]).last
         present_object user, with: Dinovative::Entities::UserEntity
       end
       #====================================================================
