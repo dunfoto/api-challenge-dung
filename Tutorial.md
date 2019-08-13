@@ -15,6 +15,6 @@ Skip create, migrate db and start server.
     - Code structure isn't good.
     - Missing feature authentication! for user login when user want destroy record.
 
-#Thanks you for reading.
+# Thanks you for reading.
 
-#I look forward to receiving more feedbacks
+# I look forward to receiving more feedbacks
