@@ -26,18 +26,21 @@ module Dinovative::V1::Matchs
       #====================================================================
 
       #====================================================================
-      desc "Destroy match need code, time and venue for destroy correct"
+      desc "Destroy match need match_code and venue for destroy correct"
       params do
         requires :match_code, type: String
-        requires :match_time, type: DateTime
         requires :venue, type: String
       end
       delete '/:match_code/destroy' do
-        match = Match.where(["match_code = '%s' and match_time = '%s' and venue = '%s", params[:match_code], params[:match_time]], params[:venue])
-        if match.destroy_all
-          present_message("Destroy success")
+        match = Match.where("match_code = ? and venue = ?", params[:match_code],  params[:venue])
+        if match.count > 0
+          if match.destroy_all
+            present :message, "Destroy success"
+          else
+            present :message, "Destroy fail"
+          end
         else
-          present_message("Destroy fail")
+          present :message, "Destroy fail"
         end
       end
       #====================================================================

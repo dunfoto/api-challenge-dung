@@ -34,8 +34,9 @@ module Dinovative::V1
             UserMatch.find_or_create_by(match_id: match.id, player1_id: player_1.id, player2_id: player_2.id)
             Rails.logger.info "Import Success"
           end
+          @status_import = true
         rescue
-          false
+          @status_import = false
         end
       end
     end
@@ -44,8 +45,11 @@ module Dinovative::V1
       requires :file, type: File
     end
     post :import do
-      if import_data(params[:file])
-        present_message("Success Import")
+      import_data(params[:file])
+      if @status_import = true
+        present :message, "Success"
+      else
+        present :message, "Fail"
       end
     end
   end

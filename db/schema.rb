@@ -34,12 +34,11 @@ ActiveRecord::Schema.define(version: 2019_08_13_020618) do
 
   create_table "scores", force: :cascade do |t|
     t.bigint "match_id"
-    t.bigint "player_id"
+    t.integer "player_id"
     t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["match_id"], name: "index_scores_on_match_id"
-    t.index ["player_id"], name: "index_scores_on_player_id"
   end
 
   create_table "user_matches", force: :cascade do |t|
@@ -64,5 +63,4 @@ ActiveRecord::Schema.define(version: 2019_08_13_020618) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "scores", "users", column: "player_id"
 end

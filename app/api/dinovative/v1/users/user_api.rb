@@ -28,10 +28,22 @@ module Dinovative::V1::Users
         user = User.find_by(email: params[:email])
         if user.present?
           user.update! params[:user] unless params[:user].nil?
-          present_message("Update success!")
+          present :message, "Update success!"
         end
       end
       #====================================================================
+
+      #====================================================================
+      desc "Get score user"
+      params do
+        requires :full_name, type: String
+      end
+      get '/user/:full_name' do
+        user = User.find_by(full_name: params[:full_name])
+        present_object user, with: Dinovative::Entities::ScoreUserEntity
+      end
+      #====================================================================
+      
     end
   end
 end
