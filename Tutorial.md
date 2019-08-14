@@ -14,6 +14,7 @@ Skip create, migrate db and start server.
     - Code don't optimize.
     - Code structure isn't good.
     - Missing feature authentication! for user login when user want destroy record.
+    - Don't use errors in grape for exception.
 
 # Thanks you for reading.
 
