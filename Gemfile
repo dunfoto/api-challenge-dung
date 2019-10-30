@@ -33,7 +33,7 @@ gem 'grape-swagger-rails',          '~> 0.3.1'
 gem 'grape-swagger-entity',         '~> 0.3.3'
 gem 'grape-entity',                 '~> 0.7.1'
 gem 'grape-swagger-representable',  '~> 0.2.2'
-gem 'devise',                       '~> 4.6', '>= 4.6.2'
+gem 'devise',                       '~> 4.7'
 gem 'whenever',                     '~> 1.0'
 
 # Use ActiveStorage variant
